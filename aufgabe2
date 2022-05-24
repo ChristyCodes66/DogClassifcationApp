@@ -7,23 +7,28 @@ Created on Tue May 17 08:18:27 2022
 """
 
 import sys
+
 print('Python: {}'.format(sys.version))
 
 import scipy
+
 print('scipy: {}'.format(scipy.__version__))
 
 import numpy
+
 print('numpy: {}'.format(numpy.__version__))
 # matplotlib
 import matplotlib
+
 print('matplotlib: {}'.format(matplotlib.__version__))
 # pandas
 import pandas
+
 print('pandas: {}'.format(pandas.__version__))
 # scikit-learn
 import sklearn
-print('sklearn: {}'.format(sklearn.__version__))
 
+print('sklearn: {}'.format(sklearn.__version__))
 
 # Load libraries
 from pandas import read_csv
@@ -42,13 +47,14 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
-
-
-#dataset for lables
+# dataset for labels
 
 # Load dataset
-url = "https://www.kaggle.com/competitions/dog-breed-identification/data?select=labels.csv"
-names = ['id','breed']
+# Rose: Loads your dataset
+# url = "https://www.kaggle.com/competitions/dog-breed-identification/data?select=labels.csv"
+
+url = "/Users/user/UniIDE/USWS/dog-breed-identification/labels.csv"
+names = ['id', 'breed']
 dataset = read_csv(url, names=names)
 
 # shape
@@ -56,3 +62,12 @@ print(dataset.shape)
 
 # head
 print(dataset.head(20))
+
+# description
+print(dataset.describe())
+
+# class distribution
+# prints how many entries exist for each breed
+print(dataset.groupby('breed').size())
+
+
